@@ -7,11 +7,11 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def create
-        item = Devotion.new(item_params)
+        item = Item.new(item_params)
         
         if item.save   
             render json: item        
-            # render json: ItemSerializer.new(devotion), status: :accepted
+            # render json: ItemSerializer.new(item), status: :accepted
         else
             render json: {errors: 'Error creating item'}
         end
@@ -28,18 +28,17 @@ class Api::V1::ItemsController < ApplicationController
     end 
 
     # def update
-    #     devotion = Devotion.find_by_id(params[:id])
-    #     devotion.title = params[:title]
-    #     devotion.date = params[:date]
-    #     devotion.verse = params[:verse]
-    #     devotion.content = params[:content]
-    #     devotion.image_url = params[:image_url]
-    #     devotion.category_id = params[:category_id]
+    #     item = item.find_by_id(params[:id])
+    #     item.name = params[:name]
+    #     item.description = params[:description]
+    #     item.price = params[:price]
+    #     item.image_url = params[:image_url]
+    #     item.category_id = params[:category_id]
 
-    #     if devotion.save
-    #         render json: DevotionSerializer.new(devotion), status: :accepted
+    #     if item.save
+    #         render json: ItemSerializer.new(item), status: :accepted
     #     else
-    #         render json: {errors: devotion.errors.full_message}, status: :unprocessable_entity
+    #         render json: {errors: item.errors.full_message}, status: :unprocessable_entity
     #     end
     # end
 

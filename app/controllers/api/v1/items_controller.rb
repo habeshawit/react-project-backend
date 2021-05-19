@@ -16,8 +16,8 @@ class Api::V1::ItemsController < ApplicationController
         # item = @category.items.new(item_params)
         # binding.pry
         if item.save   
-            render json: item       
-            # render json: @category 
+            # render json: item       
+            render json: @category 
             # render json: ItemSerializer.new(item), status: :accepted
         else
 

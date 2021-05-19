@@ -1,5 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
 
+    before_action :find_category, except: [:index, :show, :destroy]
+    
     def index
         items = Item.all
         render json: items
@@ -7,12 +9,18 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def create
-        item = Item.new(item_params)
-        
+        # @category = Category.find_by(id: params[:category_id])
+        item = @category.items.new(item_params)
+        # item = Item.new(item_params)
+        # #can also link to a category upon build
+        # item = @category.items.new(item_params)
+        # binding.pry
         if item.save   
-            render json: item        
+            render json: item       
+            # render json: @category 
             # render json: ItemSerializer.new(item), status: :accepted
         else
+
             render json: {errors: 'Error creating item'}
         end
     end
@@ -41,6 +49,11 @@ class Api::V1::ItemsController < ApplicationController
     #         render json: {errors: item.errors.full_message}, status: :unprocessable_entity
     #     end
     # end
+
+    def find_category
+        @category = Category.find_by(id: params[:category_id])
+        # binding.pry
+    end
 
     def destroy
         item = Item.find(params[:id])

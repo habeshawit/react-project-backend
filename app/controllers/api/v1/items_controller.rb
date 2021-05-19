@@ -14,7 +14,7 @@ class Api::V1::ItemsController < ApplicationController
         # item = Item.new(item_params)
         # #can also link to a category upon build
         # item = @category.items.new(item_params)
-        # binding.pry
+        
         if item.save   
             # render json: item       
             render json: @category 

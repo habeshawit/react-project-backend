@@ -23,7 +23,7 @@ class Api::V1::ItemsController < ApplicationController
             
             # error = "Error creating item"
             # binding.pry
-            render json: {message: "Error creating item"}, status: 501
+            render json: {message: item.errors.full_messages}, status: 501
                 
             # render json: error
         end

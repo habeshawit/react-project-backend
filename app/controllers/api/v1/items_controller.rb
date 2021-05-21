@@ -1,6 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
 
-    before_action :find_category, except: [:index, :show, :destroy]
+    # before_action :find_user, only: [:create, :destroy]
+    
     
     def index
         items = Item.all
@@ -9,19 +10,22 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def create
-        # @category = Category.find_by(id: params[:category_id])
-        item = @category.items.new(item_params)
-        # item = Item.new(item_params)
-        # #can also link to a category upon build
+        # @category = Category.find_by(id: params[:item][:category_id])
         # item = @category.items.new(item_params)
-        
+        item = Item.new(item_params)
+        # binding.pry
         if item.save   
-            # render json: item       
-            render json: @category 
+            # render json: item
+            render json: {message: "Item successfully posted", item: item }       
+            # render json: @category 
             # render json: ItemSerializer.new(item), status: :accepted
         else
-
-            render json: {errors: 'Error creating item'}
+            
+            # error = "Error creating item"
+            # binding.pry
+            render json: {message: "Error creating item"}, status: 501
+                
+            # render json: error
         end
     end
 
@@ -50,20 +54,21 @@ class Api::V1::ItemsController < ApplicationController
     #     end
     # end
 
-    def find_category
-        @category = Category.find_by(id: params[:category_id])
+    def find_user
+        current_user
         # binding.pry
     end
 
     def destroy
         item = Item.find(params[:id])
         item.destroy
+        render json: {message: 'Successfully deleted' }
     end
 
     private
 
     def item_params
-        params.require(:item).permit(:name, :description, :qty, :price, :image_url, :category_id)
+        params.require(:item).permit(:name, :description, :qty, :price, :image_url, :category_id, :user_id)
     end
 
 end

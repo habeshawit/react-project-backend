@@ -23,7 +23,7 @@ class Api::V1::ItemsController < ApplicationController
             
             # error = "Error creating item"
             # binding.pry
-            render json: {message: item.errors.full_messages}, status: 501
+            render json: {message: item.errors.full_messages, item: item}, status: 501
                 
             # render json: error
         end
@@ -68,7 +68,7 @@ class Api::V1::ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:name, :description, :qty, :price, :image_url, :category_id, :user_id)
+        params.require(:item).permit(:name, :description, :price, :image_url, :category_id, :user_id)
     end
 
 end

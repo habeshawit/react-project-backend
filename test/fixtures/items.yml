@@ -4,12 +4,12 @@ one:
   category_id: MyString
   integer: MyString
   description: MyString
-  qty: MyString
+  location: MyString
   price: 1.5
 
 two:
   category_id: MyString
   integer: MyString
   description: MyString
-  qty: MyString
+  location: MyString
   price: 1.5

@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_030231) do
     t.integer "user_id"
     t.string "name"
     t.string "description"
-    t.string "qty"
     t.float "price"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
@@ -34,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_030231) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "contact_preference"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

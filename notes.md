@@ -7,4 +7,4 @@ has_many :items
 Item
 belongs_to :category
 :category_id - integer
-:description, :qty, :price - float
+:description, :location, :price - float

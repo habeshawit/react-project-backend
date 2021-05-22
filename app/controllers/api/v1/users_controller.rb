@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-    # skip_before_action :authorized, only: [:create]
 
     def index
         @users = User.all
@@ -17,7 +16,6 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        # binding.pry
             if @user.save
                 login!  
                 render json: {

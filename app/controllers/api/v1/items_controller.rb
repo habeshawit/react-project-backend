@@ -13,7 +13,7 @@ class Api::V1::ItemsController < ApplicationController
         # @category = Category.find_by(id: params[:item][:category_id])
         # item = @category.items.new(item_params)
         item = Item.new(item_params)
-        # binding.pry
+        # 
         if item.save   
             # render json: item
             render json: {message: "Item successfully posted", item: item }       
@@ -22,7 +22,7 @@ class Api::V1::ItemsController < ApplicationController
         else
             
             # error = "Error creating item"
-            # binding.pry
+            # 
             render json: {message: item.errors.full_messages, item: item}, status: 501
                 
             # render json: error
@@ -56,7 +56,7 @@ class Api::V1::ItemsController < ApplicationController
 
     def find_user
         current_user
-        # binding.pry
+        # 
     end
 
     def destroy

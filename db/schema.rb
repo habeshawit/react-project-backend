@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_030231) do
     t.integer "category_id"
     t.integer "user_id"
     t.string "name"
+    t.string "condition"
     t.string "description"
     t.float "price"
     t.string "image_url"

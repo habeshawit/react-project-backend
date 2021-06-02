@@ -3,10 +3,13 @@ class Api::V1::ItemsController < ApplicationController
     def index
         items = Item.all
         render json: items
+        # render json: items.with_attached_image
+        
     end
 
     def create
         item = Item.new(item_params)
+  
         if item.save   
             render json: {message: "Item successfully posted", item: item }       
         else
@@ -19,6 +22,8 @@ class Api::V1::ItemsController < ApplicationController
 
         if item 
             render json: item
+            # render json: item.with_attached_image
+
         else 
             render json: {message: 'item not found.' }
         end 
@@ -33,7 +38,7 @@ class Api::V1::ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:name, :description, :price, :condition, :image_url, :category_id, :user_id)
+        params.require(:item).permit(:name, :description, :price, :condition, :image_url, :category_id, :user_id) #, :images)
     end
 
 end

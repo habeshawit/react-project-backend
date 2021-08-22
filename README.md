@@ -2,9 +2,9 @@ Welcome to Simple Sales, a simple version of an app where users can buy and sell
 
 To get started, you will need to also clone the frontend repo at: https://github.com/habeshawit/react-project-frontend
 
-Installation
+## Installation
 
-####Backend
+### Backend
 In the backend repository, open a terminal and run the following commands to set up the back end database:
 
 ```
@@ -15,5 +15,5 @@ $ rails db:seed
 $ rails s
 ```
 
-####Frontend
+### Frontend
 Once you have the backend setup, clone the [frontend repo](http://localhost:3000) and follow the steps to run the app.

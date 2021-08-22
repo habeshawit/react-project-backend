@@ -1,24 +1,19 @@
-# README
+Welcome to Simple Sales, a simple version of an app where users can buy and sell items. This repository is the backend for the react app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started, you will need to also clone the frontend repo at: https://github.com/habeshawit/react-project-frontend
 
-Things you may want to cover:
+Installation
 
-* Ruby version
+####Backend
+In the backend repository, open a terminal and run the following commands to set up the back end database:
 
-* System dependencies
+```
+$ git clone 
+$ bundle install
+$ rails db:create && db:migrate
+$ rails db:seed
+$ rails s
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+####Frontend
+Once you have the backend setup, clone the [frontend repo](http://localhost:3000) and follow the steps to run the app.
